@@ -55,3 +55,13 @@ initials firstname lastname = [f] ++ ". " ++ [l] ++ "."
 calcBmis :: [(Double, Double)] -> [Double]
 calcBmis xs = [bmi w h | (w, h) <- xs]
   where bmi weight height = weight / height ^ 2
+
+maximum' :: (Ord a) => [a] -> a
+maximum' [] = error "maximum of empty list"
+maximum' [x] = x
+maximum' (x:xs) = max x (maximum' xs)
+
+replicate' :: Int -> a -> [a]
+replicate' n x
+  | n <= 0 = []
+  | otherwise = x : replicate' (n-1) x
