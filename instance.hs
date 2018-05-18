@@ -16,7 +16,7 @@ instance Next TraficLight where
 data Point a = Point a a
 
 class Move a where
-    move :: a -> Num -> a
+    move :: a -> Float -> a
 
-instance (Num a) => Move (Point a) where
-    move (Point x y) t = Point (x+t) (y+t)
+instance (Float a) => Move (Float a) where
+    move (Point x y) a = Point (x+a) (y+a)
