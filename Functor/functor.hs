@@ -18,3 +18,7 @@ data Box a = EmptyBox | Box a deriving (Show)
 instance Functor' Box where
     fmap' f (Box a) = Box (f a)
     fmap' f EmptyBox = EmptyBox
+
+instance Functor' (Either a) where
+    fmap' f (Right x) = Right (f x)
+    fmap' f (Left x) = Left x
